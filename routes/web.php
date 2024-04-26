@@ -17,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AuthController::class, 'index']);
 
 
-Route::get('/home', [MainController::class, 'index']);
+Route::controller(MainController::class)->group(function () {
+    Route::get('home', 'index');
+    Route::get('add', 'add');
+});
