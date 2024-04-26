@@ -6,7 +6,7 @@
             <a href="{{ url('add') }}" class="btn-primary">
                 Tambah Karyawan
             </a>
-            <button type="button" class="btn-success">
+            <button type="button" class="btn-purple">
                 Import CSV
                 <i class="ms-1 fa fa-file-pdf"></i>
             </button>
@@ -14,10 +14,10 @@
                 Export PDF
                 <i class="ms-1 fa fa-file-pdf"></i>
             </button>
-            <button type="button" class="btn-success">
+            <a href="{{ url('api/employee/export/csv') }}" class="btn-success">
                 Export CSV
                 <i class="ms-1 fa fa-file-csv"></i>
-            </button>
+            </a>
         </div>
         <div class="" id="app">
             <list-employee />

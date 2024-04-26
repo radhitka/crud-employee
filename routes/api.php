@@ -22,4 +22,8 @@ Route::prefix('employee')->controller(EmployeeController::class)->group(function
     Route::post('', 'add');
     Route::post('/update/{id}', 'update');
     Route::delete('/{id}', 'delete');
+
+    Route::prefix('export')->group(function () {
+        Route::get('csv', 'exportCsv');
+    });
 });

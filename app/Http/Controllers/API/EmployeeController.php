@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class EmployeeController extends Controller
 {
@@ -91,5 +92,35 @@ class EmployeeController extends Controller
         $data = Employee::query()->where('id', $id)->delete();
 
         return responseSuccess();
+    }
+
+    public function exportCsv()
+    {
+        $data = Employee::all();
+        $csv_name = 'employee.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=$csv_name",
+        ];
+
+        $handle = fopen('php://output', 'w');
+        fputcsv($handle, ['nama', 'nomor', 'jabatan', 'departmen', 'tanggal_masuk', 'foto', 'status']);
+
+        foreach ($data as $key => $value) {
+            fputcsv($handle, [
+                $value->nama,
+                $value->nomor,
+                $value->jabatan,
+                $value->departmen,
+                $value->tanggal_masuk,
+                $value->foto,
+                $value->status,
+            ]);
+        }
+
+        fclose($handle);
+
+        return Response::make('', 200, $headers);
     }
 }

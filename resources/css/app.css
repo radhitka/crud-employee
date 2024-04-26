@@ -23,4 +23,8 @@
     .btn-danger {
         @apply text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm py-2 px-3;
     }
+
+    .btn-purple {
+        @apply text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm py-2 px-3;
+    }
 }
