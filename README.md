@@ -19,19 +19,19 @@ php artisan key:generate
 then
 
 ```bash
- php artisan migrate --step
+php artisan migrate --step
 ```
 
 then
 
 ```bash
- npm run build
+npm run build
 ```
 
 and last
 
 ```bash
- php artisan serve
+php artisan serve
 ```
 
 ## Tech Stack
