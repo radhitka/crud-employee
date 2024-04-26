@@ -25,7 +25,7 @@
                     </td>
                     <td>
                         <div class="flex flex-wrap gap-1">
-                            <a class="btn-primary" href="">
+                            <a class="btn-primary" :href="'edit/' + item.id">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <button

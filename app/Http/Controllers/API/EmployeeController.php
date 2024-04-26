@@ -16,6 +16,13 @@ class EmployeeController extends Controller
         return responseSuccess(['data' => $data]);
     }
 
+    public function detail($id)
+    {
+        $data = Employee::query()->latest()->where('id', $id)->first();
+
+        return responseSuccess(['data' => $data]);
+    }
+
     public function add(Request $request)
     {
         $nama = $request->input('nama');
@@ -39,6 +46,39 @@ class EmployeeController extends Controller
             $employee->status = $status;
             $employee->save();
 
+
+            return responseSuccess();
+        } catch (\Throwable $th) {
+            return responseInternalServerError($th->getMessage());
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        $nama = $request->input('nama');
+        $nomor = $request->input('nomor');
+        $jabatan     = $request->input('jabatan');
+        $departmen   = $request->input('departemen');
+        $tanggal_masuk = $request->input('tanggal_masuk');
+        $foto = $request->input('foto');
+        $status = $request->input('status');
+
+        $employee = Employee::query()->latest()->where('id', $id)->first();
+        if (!$employee) {
+            return responseNotFound('Karyawan tidak ada.');
+        }
+
+        try {
+
+            $employee->nama = $nama;
+            $employee->nomor = $nomor;
+            $employee->jabatan = $jabatan;
+            $employee->departmen = $departmen;
+            $employee->tanggal_masuk = $tanggal_masuk;
+            $employee->nama = $nama;
+            $employee->foto = $foto;
+            $employee->status = $status;
+            $employee->save();
 
             return responseSuccess();
         } catch (\Throwable $th) {

@@ -2,6 +2,7 @@ import "./bootstrap";
 
 import { createApp } from "vue";
 import AddEmployee from "./components/AddEmployee.vue";
+import EditEmployee from "./components/EditEmployee.vue";
 import IncrementCounter from "./components/IncrementCounter.vue";
 import ListEmployee from "./components/ListEmployee.vue";
 
@@ -10,6 +11,7 @@ const app = createApp({
         IncrementCounter,
         ListEmployee,
         AddEmployee,
+        EditEmployee,
     },
 });
 

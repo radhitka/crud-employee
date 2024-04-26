@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('employee')->controller(EmployeeController::class)->group(function () {
 
     Route::get('', 'list');
+    Route::get('/detail/{id}', 'detail');
     Route::post('', 'add');
+    Route::post('/update/{id}', 'update');
     Route::delete('/{id}', 'delete');
 });

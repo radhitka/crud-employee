@@ -113,6 +113,8 @@ export default {
 
     methods: {
         async saveData() {
+            const id = window.location.pathname.split("/")[2];
+
             let formData = new FormData();
 
             //assign state value to formData
@@ -124,11 +126,11 @@ export default {
             formData.append("foto", this.foto);
             formData.append("status", this.inputStatus);
 
-            api.post("/api/employee", formData)
+            api.post(`/api/employee/update/${id}`, formData)
                 .then((e) => {
                     Swal.fire({
                         title: "Sukses",
-                        text: "Berhasil tambah karyawan",
+                        text: "Berhasil update karyawan",
                         icon: "success",
                     }).then((e) => {
                         window.location.href = "/home";
@@ -142,6 +144,25 @@ export default {
                     });
                 });
         },
+        getData() {
+            const id = window.location.pathname.split("/")[2];
+
+            api.get(`/api/employee/detail/${id}`).then((e) => {
+                const data = e?.data?.data;
+
+                this.nama = data.nama;
+                this.nomor = data.nomor;
+                this.jabatan = data.jabatan;
+                this.departemen = data.departmen;
+                this.tanggal_masuk = data.tanggal_masuk;
+                this.foto = data.foto;
+                this.inputStatus = data.status;
+            });
+        },
+    },
+
+    mounted() {
+        this.getData();
     },
 };
 </script>

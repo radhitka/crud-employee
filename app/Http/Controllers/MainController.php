@@ -15,4 +15,9 @@ class MainController extends Controller
     {
         return view('employee.add');
     }
+
+    public function edit()
+    {
+        return view('employee.edit');
+    }
 }
