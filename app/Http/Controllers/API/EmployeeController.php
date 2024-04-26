@@ -7,6 +7,7 @@ use App\Models\Employee;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
@@ -27,6 +28,20 @@ class EmployeeController extends Controller
 
     public function add(Request $request)
     {
+        $validated = Validator::make($request->all(), [
+            'nama' => 'required',
+            'nomor' => 'required|numeric',
+            'jabatan' => 'required',
+            'departemen' => 'required',
+            'tanggal_masuk' => 'required',
+            'foto' => 'required',
+            'status' => 'required',
+        ]);
+
+        if ($validated->fails()) {
+            return responseError(['error' => collect($validated->errors())->first()]);
+        }
+
         $nama = $request->input('nama');
         $nomor = $request->input('nomor');
         $jabatan     = $request->input('jabatan');
@@ -57,6 +72,20 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validated = Validator::make($request->all(), [
+            'nama' => 'required',
+            'nomor' => 'required|numeric',
+            'jabatan' => 'required',
+            'departemen' => 'required',
+            'tanggal_masuk' => 'required',
+            'foto' => 'required',
+            'status' => 'required',
+        ]);
+
+        if ($validated->fails()) {
+            return responseError(['error' => $validated->errors()]);
+        }
+
         $nama = $request->input('nama');
         $nomor = $request->input('nomor');
         $jabatan     = $request->input('jabatan');

@@ -140,7 +140,7 @@ export default {
                     Swal.fire({
                         icon: "error",
                         title: "Ada Error",
-                        text: err.response.data,
+                        text: err.response.data.error,
                     });
                 });
         },

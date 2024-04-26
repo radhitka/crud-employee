@@ -17,9 +17,8 @@
 <body class="bg-slate-100 text-lg font-medium text-slate-800">
 
     <div class="bg-slate-300">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
             <h1>Dashboard</h1>
-            <a href="{{ url('logout') }}">Logout</a>
         </div>
     </div>
 
