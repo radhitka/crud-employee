@@ -10,10 +10,10 @@
                 Import CSV
                 <i class="ms-1 fa fa-file-pdf"></i>
             </a>
-            <button type="button" class="btn-success">
+            <a href="{{ url('api/employee/export/pdf') }}" class="btn-success">
                 Export PDF
                 <i class="ms-1 fa fa-file-pdf"></i>
-            </button>
+            </a>
             <a href="{{ url('api/employee/export/csv') }}" class="btn-success">
                 Export CSV
                 <i class="ms-1 fa fa-file-csv"></i>

@@ -25,6 +25,7 @@ Route::prefix('employee')->controller(EmployeeController::class)->group(function
 
     Route::prefix('export')->group(function () {
         Route::get('csv', 'exportCsv');
+        Route::get('pdf', 'exportPdf');
     });
 
     Route::prefix('import')->group(function () {

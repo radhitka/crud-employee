@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -145,5 +146,14 @@ class EmployeeController extends Controller
         }
 
         return responseSuccess();
+    }
+
+    public function exportPdf(Request $request)
+    {
+        $data = Employee::query()->get();
+
+        $pdf = Pdf::loadView('employee.pdf', ['data' => $data]);
+
+        return $pdf->stream('employee.pdf');
     }
 }
