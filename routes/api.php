@@ -19,4 +19,5 @@ Route::prefix('employee')->controller(EmployeeController::class)->group(function
 
     Route::get('', 'list');
     Route::post('', 'add');
+    Route::delete('/{id}', 'delete');
 });

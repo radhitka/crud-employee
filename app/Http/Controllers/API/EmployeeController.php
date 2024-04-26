@@ -45,4 +45,11 @@ class EmployeeController extends Controller
             return responseInternalServerError($th->getMessage());
         }
     }
+
+    public function delete($id)
+    {
+        $data = Employee::query()->where('id', $id)->delete();
+
+        return responseSuccess();
+    }
 }
