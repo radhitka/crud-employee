@@ -24,7 +24,7 @@
                         {{ key + 1 }}
                     </td>
                     <td>
-                        <div class="flex flex-wrap gap-1">
+                        <div class="flex flex-row gap-1">
                             <a class="btn-primary" :href="'edit/' + item.id">
                                 <i class="fa fa-pencil"></i>
                             </a>

@@ -107,7 +107,7 @@ export default {
             tanggal_masuk: "",
             foto: "",
             inputStatus: "",
-            status: ["kontrak", "probration", "tetap"],
+            status: ["kontrak", "probation", "tetap"],
         };
     },
 

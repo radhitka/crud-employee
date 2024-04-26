@@ -123,4 +123,27 @@ class EmployeeController extends Controller
 
         return Response::make('', 200, $headers);
     }
+
+    public function importCsv(Request $request)
+    {
+        $file = $request->file('file');
+        $fileContents = file($file->getPathname());
+
+        foreach ($fileContents as $key =>  $line) {
+            $data = str_getcsv($line);
+            if ($key != 0) {
+                Employee::create([
+                    'nama' => $data[0],
+                    'nomor' => $data[1],
+                    'jabatan' => $data[2],
+                    'departmen' => $data[3],
+                    'tanggal_masuk' => $data[4],
+                    'foto' => $data[5],
+                    'status' => $data[6],
+                ]);
+            }
+        }
+
+        return responseSuccess();
+    }
 }

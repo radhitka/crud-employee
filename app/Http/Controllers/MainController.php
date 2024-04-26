@@ -20,4 +20,9 @@ class MainController extends Controller
     {
         return view('employee.edit');
     }
+
+    public function import()
+    {
+        return view('employee.import');
+    }
 }

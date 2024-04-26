@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('departmen')->nullable();
             $table->date('tanggal_masuk')->nullable();
             $table->string('foto')->nullable();
-            $table->enum('status', ['kontrak', 'probration', 'tetap'])->nullable();
+            $table->enum('status', ['kontrak', 'probation', 'tetap'])->nullable();
             $table->timestamps();
         });
     }

@@ -20,5 +20,6 @@ Route::get('/', [AuthController::class, 'index']);
 Route::controller(MainController::class)->group(function () {
     Route::get('home', 'index');
     Route::get('add', 'add');
+    Route::get('import', 'import');
     Route::get('edit/{id}', 'edit');
 });
