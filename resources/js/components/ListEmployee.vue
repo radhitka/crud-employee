@@ -20,31 +20,56 @@
                     v-for="(item, key) in employee"
                     :key="key"
                 >
-                    <th class="">
-                        {{ key }}
-                    </th>
-                    <th></th>
-                    <th
-                        scope="row"
-                        class="font-medium text-gray-900 whitespace-nowrap"
-                    >
-                        Apple MacBook Pro 17"
-                    </th>
-                    <td class="">Silver</td>
-                    <td class="">Laptop</td>
-                    <td class="">$2999</td>
+                    <td class="">
+                        {{ key + 1 }}
+                    </td>
+                    <td>
+                        <div class="flex flex-wrap gap-1">
+                            <a class="btn-primary" href="">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a class="btn-danger" href="">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td scope="row" class="">
+                        {{ item.nama }}
+                    </td>
+                    <td class="">{{ item.nomor }}</td>
+                    <td class="">{{ item.jabatan }}</td>
+                    <td class="">{{ item.departmen }}</td>
+                    <td class="">{{ item.tanggal_masuk }}</td>
+                    <td class="">
+                        <img :src="item.foto" class="w-32 rounded-lg" alt="" />
+                    </td>
+                    <td class="">{{ item.status }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </template>
 
+<script setup>
+import api from "../src/api";
+</script>
+
 <script>
 export default {
     data() {
         return {
-            employee: [{}],
+            employee: [],
         };
+    },
+    methods: {
+        async getEmployee() {
+            await api.get("/api/employee").then((e) => {
+                this.employee = e.data.data;
+            });
+        },
+    },
+    mounted() {
+        this.getEmployee();
     },
 };
 </script>

@@ -14,13 +14,13 @@ return new class extends Migration
         //
         Schema::create('employee', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
-            $table->string('nomor');
-            $table->string('jabatan');
-            $table->string('departmen');
-            $table->date('tanggal_masuk');
-            $table->string('foto');
-            $table->enum('status', ['kontrak', 'probration', 'tetap']);
+            $table->string('nama')->nullable();
+            $table->string('nomor')->nullable();
+            $table->string('jabatan')->nullable();
+            $table->string('departmen')->nullable();
+            $table->date('tanggal_masuk')->nullable();
+            $table->string('foto')->nullable();
+            $table->enum('status', ['kontrak', 'probration', 'tetap'])->nullable();
             $table->timestamps();
         });
     }

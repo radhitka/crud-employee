@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c491b8531eec05ba41a11d9276a5749",
+    "content-hash": "0442cf4145dd5a7c7606a6ecdf577fb5",
     "packages": [
         {
             "name": "brick/math",
@@ -2959,6 +2959,39 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.12.3"
             },
             "time": "2024-04-02T15:57:53+00:00"
+        },
+        {
+            "name": "raditor/helper",
+            "version": "v1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/radhitka/helper.git",
+                "reference": "a41d3e9ebfb470df3522c03d5dfb8ca03f5a8e87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/radhitka/helper/zipball/a41d3e9ebfb470df3522c03d5dfb8ca03f5a8e87",
+                "reference": "a41d3e9ebfb470df3522c03d5dfb8ca03f5a8e87",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Radhitka Adha"
+                }
+            ],
+            "description": "a simple helper for laravel api :)",
+            "support": {
+                "issues": "https://github.com/radhitka/helper/issues",
+                "source": "https://github.com/radhitka/helper/tree/v1.8"
+            },
+            "time": "2023-06-26T03:44:56+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
